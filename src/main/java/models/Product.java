@@ -1,20 +1,24 @@
 package models;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
-
+import javax.validation.constraints.*;
 @Entity
 @Table(name="product")
 public class Product extends Model {
 
     private  static final long serialVersionUID = -9014244086428324652L;
-
+    @NotEmpty(message = "Field must have name = String")
     @Column(name = "title")
     private String title;
 
     @Column(name = "description")
     private String description;
 
+    @Max(value = 100000000)
+    @Min(value = 0)
     @Column(name = "price")
     private BigDecimal price;
 

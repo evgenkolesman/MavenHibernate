@@ -4,18 +4,18 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name="order")
+@Table(name="order1")
 public class Order extends Model {
 
     private  static final long serialVersionUID = 5232347324400724660L;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_id", referencedColumnName = "id")
-    private Product product;
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user1_id", referencedColumnName = "id")
     private User1 user;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Product product;
 
     @Column(name = "price")
     private BigDecimal price;
